@@ -17,7 +17,7 @@ config = Configuration()
 # versioning system.
 pyqt_sip_flags = PYQT_CONFIGURATION['sip_flags']
 if sys.version_info[0] == 3:
-    pyqt_sip_dir = '/usr/share/python3-sip/PyQt5'
+    pyqt_sip_dir = '/usr/share/sip/PyQt5'
 elif sys.version_info[0] == 2:
     pyqt_sip_dir = '/usr/share/python-sip/PyQt5'
 
@@ -52,9 +52,10 @@ if config.platform.startswith('win32'):
     makefile.generator = "NMAKE"
 else:
     libname = 'qcustomplot'
-makefile.extra_include_dirs = ['/usr/include', '/usr/include/qt5', '/usr/include/qt5/QtCore', '/usr/include/qt5/QtWidgets', '/usr/include/qt5/QtGui', '/usr/include/qt5/QtPrintSupport']
+include_base = '/usr/include/x86_64-linux-gnu/'
+makefile.extra_include_dirs = [include_base + d for d in ['', 'qt5', 'qt5/QtCore', 'qt5/QtWidgets', 'qt5/QtGui', 'qt5/QtPrintSupport']]
 makefile.extra_libs = [libname]
-makefile.extra_lib_dirs = ["/usr/lib64"]
+makefile.extra_lib_dirs = ["/usr/lib/x86_64-linux-gnu"]
 
 # Generate the Makefile itself.
 makefile.generate()
