@@ -20,9 +20,7 @@
 **           Author: Emanuel Eichhammer                                   **
 **  Website/Contact: http://www.qcustomplot.com/                          **
 **             Date: 25.04.15                                             **
-**          Version: 1.3.1-mod                                            **
-**          Modified: Dmitry Voronin                                      **
-**          date: 18.07.15                                                **
+**          Version: 1.3.1                                                **
 ****************************************************************************/
 
 #ifndef QCUSTOMPLOT_H
@@ -1763,8 +1761,6 @@ public:
   int plottableCount() const;
   QList<QCPAbstractPlottable*> selectedPlottables() const;
   QCPAbstractPlottable *plottableAt(const QPointF &pos, bool onlySelectable=false) const;
-  QCPBars *plottableBarsAt(const QPointF &pos, bool onlySelectable=false) const;
-  QCPGraph *plottableGraphAt(const QPointF &pos, bool onlySelectable=false) const;
   bool hasPlottable(QCPAbstractPlottable *plottable) const;
  
   // specialized interface for QCPGraph:
